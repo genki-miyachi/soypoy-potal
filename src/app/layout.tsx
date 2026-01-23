@@ -1,58 +1,44 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Zen_Old_Mincho } from "next/font/google";
-import "./globals.css";
-import { apiPlugin, storyblokInit } from "@storyblok/react";
-import Header from "./components/Header";
-import { CacheProvider } from "./contexts/CacheContext";
-
-// Storyblokの初期化
-storyblokInit({
-  accessToken: process.env.STORYBLOK_API_TOKEN,
-  use: [apiPlugin],
-  apiOptions: {
-    region: "eu",
-  },
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// 明朝体フォントの追加
-const zenOldMincho = Zen_Old_Mincho({
-  weight: ["400", "700"],
-  variable: "--font-zen-old-mincho",
-  subsets: ["latin"],
-  display: "swap",
-});
+import "@/assets/styles/globals.css";
+import {
+  anymale,
+  bernardMT,
+  bricolageGrotesque,
+  notoSansJP,
+  shipporiMincho,
+  zenOldMincho,
+} from "@/assets/fonts";
+import { cn } from "@/utils/cn";
 
 export const metadata: Metadata = {
-  title: "SOY-POY | Community Bar",
+  title: "SOY-POY | 表現と創作を楽しむパブリックハウス",
   description:
-    "SOY-POY is a community bar where people gather, connect and share experiences.",
+    "「好きに生きて、一緒に生きる」をコンセプトに、週末限定のパブリックハウスSOY-POYでは、オープンマイク、コンサート、即興コメディワークショップなどのイベントを開催。",
 };
 
-type RootLayoutProps = {
+interface RootLayoutProps {
   children: React.ReactNode;
-};
+}
 
 export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
-    <html lang="ja">
+    <html
+      lang="ja"
+      className={cn(
+        bricolageGrotesque.variable,
+        notoSansJP.variable,
+        anymale.variable,
+        bernardMT.variable,
+        zenOldMincho.variable,
+        shipporiMincho.variable,
+      )}
+    >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${zenOldMincho.variable} antialiased min-h-screen flex flex-col relative`}
+        className={
+          "antialiased min-h-screen flex flex-col relative font-noto-sans-jp bg-soypoy-main"
+        }
       >
-        <CacheProvider>
-          <Header />
-          <main className="flex-grow z-10 relative">{children}</main>
-        </CacheProvider>
+        {children}
       </body>
     </html>
   );

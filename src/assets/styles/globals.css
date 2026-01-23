@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import "./marquee-duration.css";
+@import "./sheet.css";
+@import "./floating-fuda.css";
+@import "./filmroll-bg.css";
+
+@theme {
+  /* SOY-POY カラーテーマ */
+  --color-soypoy-main: #F3F0E6;
+  --color-soypoy-secondary: #000000;
+  --color-soypoy-accent: #F0433C;
+  --color-soypoy-muted: #8E8E8E;
+
+  /* shadcn/ui用のシステムカラー（SOY-POYテーマを反映） */
+  --color-background: var(--color-soypoy-main);
+  --color-foreground: var(--color-soypoy-secondary);
+  --color-primary: var(--color-soypoy-accent);
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: oklch(0.97 0.001 106.424);
+  --color-secondary-foreground: var(--color-soypoy-secondary);
+  --color-muted: var(--color-soypoy-muted);
+  --color-muted-foreground: var(--color-soypoy-secondary);
+  --color-accent: var(--color-soypoy-accent);
+  --color-accent-foreground: #FFFFFF;
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-destructive-foreground: #FFFFFF;
+  --color-border: oklch(0.923 0.003 48.717);
+  --color-input: oklch(0.923 0.003 48.717);
+  --color-ring: var(--color-soypoy-accent);
+  --color-card: var(--color-soypoy-main);
+  --color-card-foreground: var(--color-soypoy-secondary);
+  --color-popover: var(--color-soypoy-main);
+  --color-popover-foreground: var(--color-soypoy-secondary);
+  
+  /* フォントファミリー */
+  --font-sans: var(--font-noto-sans-jp), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage-grotesque), var(--font-noto-sans-jp), ui-sans-serif, system-ui, sans-serif;
+  --font-anymale: var(--font-anymale), ui-sans-serif, system-ui, sans-serif;
+  --font-bernard-mt: var(--font-bernard-mt), ui-sans-serif, system-ui, sans-serif;
+  --font-zen-old-mincho: var(--font-zen-old-mincho), ui-sans-serif, system-ui, sans-serif;
+  --font-shippori-mincho: var(--font-shippori-mincho), ui-serif, serif;
+  
+  /* Border radius */
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --aspect-retro: 4 / 3; 
+  --aspect-smartphone: 9 / 16;
+  --aspect-insta: 4 / 5;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* prevent horizontal scroll */
+    scrollbar-gutter: stable; /* prevent layout shift when scrollbar appears/disappears */
+  }
+}
+
+@utility aspect-insta {
+  aspect-ratio: var(--aspect-insta);
+}

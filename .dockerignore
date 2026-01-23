@@ -1,0 +1,90 @@
+cat > .dockerignore << 'EOF'
+# === 依存関係 ===
+node_modules/
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# === ビルド成果物 ===
+dist/
+build/
+.next/
+out/
+.nuxt/
+.output/
+.cache/
+coverage/
+*.tsbuildinfo
+
+# === 環境変数 ===
+.env
+.env.*
+!.env.example
+
+# === Git（最重要！）===
+.git/
+.gitignore
+.gitattributes
+.github/
+
+# === IDE ===
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.cursor/
+.devcontainer/
+
+# === OS ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# === Docker ===
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# === ドキュメント ===
+README.md
+CHANGELOG.md
+LICENSE
+*.md
+docs/
+
+# === テスト ===
+__tests__/
+__mocks__/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+.nyc_output/
+test/
+tests/
+jest.config.*
+vitest.config.*
+
+# === ログとテンポラリ ===
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+
+# === その他 ===
+.eslintcache
+.prettier*
+EOF
+.env.keys
